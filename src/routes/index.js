@@ -10,6 +10,9 @@ router.post("/register", Register);
 router.post("/login", Login);
 
 // manage users
-const { getAllUser } = require("../controllers/user");
+const { getAllUser, UpdateUser, deleteUser } = require("../controllers/user");
 router.get("/users", cekAuth, getAllUser);
+router.put("/user/:id", cekAuth, UpdateUser);
+router.delete("/user/:id", cekAuth, deleteUser);
+
 module.exports = router;
