@@ -6,7 +6,9 @@ const router = require("./src/routes/index");
 app.get("/", (req, res) => {
   res.send("Welcome my rest api");
 });
-app.get("/restapi/v1", router);
+
+app.use(express.json());
+app.use("/restapi/v1/", router);
 
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
